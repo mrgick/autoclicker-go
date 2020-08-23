@@ -7,25 +7,31 @@ import (
 )
 
 
+//Global Variables
+var keys_start [3]string = [3]string{"x", "shift","ctrl"}
+var keys_stop [3]string = [3]string{"a", "shift","ctrl"}
+var clicks_per_second int = 60
+
+
 //function checks if keys pressing
-func clicker_core(click_per_second int) {
+func clicker_core() {
 	
 	//creating channel
 	var stop chan bool = make(chan bool)
 
 	//start keys
-	start_keys := robotgo.AddEvents("x", "ctrl", "shift")
+	start_keys := robotgo.AddEvents(keys_start[0], keys_start[1], keys_start[2])
 		
 	if start_keys { 		
 
 		fmt.Println("Clicks started")
 
 		//running clicking function
-		go clicking(stop, click_per_second) 
+		go clicking(stop) 
 	}
 
 	//stop keys
-	stop_keys := robotgo.AddEvents("a", "ctrl", "shift")
+	stop_keys := robotgo.AddEvents(keys_stop[0], keys_stop[1], keys_stop[2])
 
 	if stop_keys { 
 
@@ -41,10 +47,10 @@ func clicker_core(click_per_second int) {
 
 
 //function that clicking =)
-func clicking(stop chan bool, click_per_second int) {
+func clicking(stop chan bool) {
 
 	//Creating time duration beetween clicks
-	time_for_sleeping := time.Duration(1/float64(click_per_second)*10e8)
+	time_for_sleeping := time.Duration(1/float64(clicks_per_second)*10e8)
 
 	for {
 
@@ -81,5 +87,5 @@ func print_help() {
 //main function
 func main() {
 	print_help()
-	clicker_core(60)
+	clicker_core()
 }
