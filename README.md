@@ -17,7 +17,7 @@ added flags:
 To set parametres that you need -> run in terminal(cmd) with flags:                  
 --clicking_speed=60 --start_keys=x+ctrl+shift --stop_keys=a+ctrl+shift
 
-YOU NEED SET ONLY 3 KEYS in set_start_keys and set_stop_keys!!!
+YOU NEED SET ONLY 3 KEYS in set_start_keys and set_stop_keys!!!              
 All keys you can find on https://github.com/go-vgo/robotgo/blob/master/docs/keys.md
 
 Good luck)
