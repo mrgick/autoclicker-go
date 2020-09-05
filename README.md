@@ -12,7 +12,7 @@ Autoclicker wroted on go (golang) and based on library robotgo (https://github.c
 3) To run clicking press ctrl+shift+x
 4) To stop clicking press ctrl+shift+a
 
-#UPD:
+UPD:
 added flags:
 To set parametres that you need -> run in terminal(cmd) with flags:                  
 --clicking_speed=60 --start_keys=x+ctrl+shift --stop_keys=a+ctrl+shift
